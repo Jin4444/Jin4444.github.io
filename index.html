@@ -4,129 +4,145 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Jimmie Jin – CV</title>
-  <meta name="description" content="Jimmie Jin, Senior Consultant at Netcompany in Copenhagen. Data, software and team lead.">
+  <meta name="description" content="Jimmie Jin, Senior Consultant at Netcompany in Copenhagen. Data and software, team lead, MSc in Computer Science.">
+  <meta name="author" content="Jimmie Jin">
   <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#fcfcfa" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#161d1a" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#141917" media="(prefers-color-scheme: dark)">
+  <link rel="alternate" hreflang="en" href="index.html">
   <link rel="alternate" hreflang="da" href="da.html">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232d6a58'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='16' font-weight='700' fill='%23fff'%3EJJ%3C/text%3E%3C/svg%3E">
 
-  <!-- Fonts from Google Fonts: Schibsted Grotesk (name, headings, dates) and Literata (body text) -->
+  <!-- How the page looks when the link is shared (LinkedIn, Slack, Messenger) -->
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Jimmie Jin – CV">
+  <meta property="og:description" content="Senior Consultant at Netcompany. Data, software and team lead in Copenhagen.">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:locale:alternate" content="da_DK">
+
+  <!-- Fonts from Google Fonts: Literata for your name, Schibsted Grotesk for everything else -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400..600;1,7..72,400..600&family=Schibsted+Grotesk:wght@400..700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,600&family=Schibsted+Grotesk:wght@400..600&display=swap">
 
   <link rel="stylesheet" href="style.css">
+
+  <!-- Facts about you for search engines (data, not code). Update it if your job changes. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Jimmie Jin",
+    "jobTitle": "Senior Consultant",
+    "worksFor": { "@type": "Organization", "name": "Netcompany" },
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "University of Copenhagen" },
+    "email": "mailto:Jimmie-Jin@outlook.com",
+    "sameAs": ["https://www.linkedin.com/in/jimmie-jin-0b0088157/"]
+  }
+  </script>
 </head>
 <body>
 
 <!--
   English version of the CV. The Danish version is da.html. Both use style.css.
 
-  Things to fill in or check are marked with yellow TODO notes on the page.
+  Yellow TODO notes on the page are things to fill in or check.
   Search this file for "TODO", fix the text, then delete the whole
   <mark class="todo">...</mark> tag.
 -->
 
+<a class="skip-link" href="#main">Skip to content</a>
+
 <div class="page">
 
   <header class="top">
-    <nav class="lang" aria-label="Language">
-      <a href="da.html" hreflang="da" lang="da">Dansk</a>
-    </nav>
-
-    <h1>Jimmie Jin</h1>
+    <div class="top-row">
+      <h1>Jimmie Jin</h1>
+      <a class="lang" href="da.html" hreflang="da" lang="da">Dansk</a>
+    </div>
     <p class="role">Senior Consultant at Netcompany, Copenhagen</p>
 
-    <p class="lead">I’ve worked with data and software since 2020. I started out as a data scientist, and today I lead a team at Netcompany that builds software for large clients. A lot of my work has been with financial and business data: reporting, automation and the tools people use to make decisions. My master’s focused on data-driven financial models, and I still follow the markets closely in my spare time.</p>
+    <ul class="contact" aria-label="Contact">
+      <li><a href="mailto:Jimmie-Jin@outlook.com">Jimmie-Jin@outlook.com</a></li>
+      <li><a href="tel:+4527892665">+45 27 89 26 65</a></li>
+      <li><a href="https://www.linkedin.com/in/jimmie-jin-0b0088157/" rel="me" data-print="linkedin.com/in/jimmie-jin-0b0088157">LinkedIn</a></li>
+    </ul>
+
+    <p class="summary">I’ve worked with data and software since 2020, first as a data scientist and now as a team lead at Netcompany. Most of my work has been with financial and business data: reporting, automation and the tools people use to make decisions. I use AI tools every day, especially Claude. My master’s focused on data-driven financial models, and I still follow the markets closely in my spare time.</p>
   </header>
 
-  <main>
+  <main id="main">
 
     <!-- ===== Experience ===== -->
     <section id="experience">
       <h2>Experience</h2>
-      <div>
 
-        <article class="entry">
-          <header class="entry-head">
-            <h3>Senior Consultant</h3>
-            <p class="org">Netcompany, Copenhagen</p>
-            <p class="dates">Dec 2024 – present</p>
-          </header>
-          <ul>
-            <li>Lead a team of 3–7 consultants: sprint planning, priorities and day-to-day contact with the client. <mark class="todo">TODO: one of your CVs says 3–12. Which is right?</mark></li>
-            <li>Draft delivery agreements with clients, covering scope, roadmap and what gets delivered when.</li>
-            <li>Keep track of hours, expenses and invoicing on projects worth up to DKK 25 million a year.</li>
-            <li>Mentor new colleagues, run performance reviews and teach methodology courses at week-long seminars.</li>
-            <li>Maintained case management systems used by more than 200 caseworkers every day.</li>
-            <li>Part of a project merging an old legacy system into a newer one, where we analysed business needs and the client’s budget.</li>
-          </ul>
-        </article>
+      <article class="entry">
+        <div class="entry-head">
+          <h3>Senior Consultant<span class="org">, Netcompany</span></h3>
+          <p class="dates">Dec 2024 – present</p>
+        </div>
+        <ul>
+          <li>Lead teams of 3–12 consultants: sprint planning, priorities and day-to-day contact with the client.</li>
+          <li>Draft delivery agreements with clients, covering scope, roadmap and delivery dates.</li>
+          <li>Track hours, expenses and invoicing on projects worth up to DKK 25 million a year.</li>
+          <li>Mentor new colleagues, run performance reviews and teach methodology courses at week-long seminars.</li>
+          <li>Maintained case management systems used by more than 200 caseworkers every day.</li>
+          <li>Helped merge an old legacy system into a newer one, including analysis of business needs and the client’s budget.</li>
+        </ul>
+      </article>
 
-        <article class="entry">
-          <header class="entry-head">
-            <h3>Consultant and Analyst</h3>
-            <p class="org">Netcompany, Copenhagen</p>
-            <p class="dates">Apr 2021 – Dec 2024</p>
-          </header>
-          <ul>
-            <li>Built Python and Excel macro tools that automated financial reporting and made large datasets easier to analyse. <mark class="todo">TODO: add a result if you have one, e.g. hours saved per month</mark></li>
-            <li>Worked on big data solutions, from raw data landing in the database to clean data ready for analytics tools.</li>
-            <li>Developed client-facing applications end to end, with Angular on the frontend and C#/ASP.NET on the backend.</li>
-            <li>Turned business requirements into technical solutions together with clients, and kept both technical and non-technical people up to date on progress.</li>
-          </ul>
-        </article>
+      <article class="entry">
+        <div class="entry-head">
+          <h3>Consultant and Analyst<span class="org">, Netcompany</span></h3>
+          <p class="dates">Apr 2021 – Dec 2024</p>
+        </div>
+        <ul>
+          <li>Built Python and Excel macro tools that automated financial reporting and made large datasets easier to analyse. <mark class="todo">TODO: add a result if you have one, e.g. hours saved per month</mark></li>
+          <li>Worked on big data pipelines, from raw data in the database to clean data ready for analytics.</li>
+          <li>Developed client-facing applications end to end, with Angular on the frontend and C#/ASP.NET on the backend.</li>
+          <li>Turned business requirements into technical solutions with clients, and kept technical and non-technical people up to date.</li>
+        </ul>
+      </article>
 
-        <article class="entry">
-          <header class="entry-head">
-            <h3>Data Scientist</h3>
-            <p class="org">BilletBillet I/S, Copenhagen</p>
-            <p class="dates">Mar 2020 – Apr 2021</p>
-          </header>
-          <ul>
-            <li>Collected, cleaned and analysed financial and business data in Python and SQL, making sure the numbers in our reports were right.</li>
-            <li>Built financial and business dashboards in Google Data Studio that fed into the company’s strategic decisions.</li>
-          </ul>
-        </article>
-
-      </div>
+      <article class="entry">
+        <div class="entry-head">
+          <h3>Data Scientist<span class="org">, BilletBillet I/S</span></h3>
+          <p class="dates">Mar 2020 – Apr 2021</p>
+        </div>
+        <ul>
+          <li>Collected, cleaned and analysed financial and business data in Python and SQL, making sure the numbers in our reports held up.</li>
+          <li>Built financial and business dashboards in Google Data Studio that fed into strategic decisions.</li>
+        </ul>
+      </article>
     </section>
 
     <!-- ===== Education ===== -->
     <section id="education">
       <h2>Education</h2>
-      <div>
 
-        <article class="entry">
-          <header class="entry-head">
-            <h3>MSc in Computer Science</h3>
-            <p class="org">University of Copenhagen</p>
-            <p class="dates">2020 – 2022</p>
-          </header>
-          <p class="note">Focus on data-driven financial models, data science, natural language processing (NLP) and algorithms.</p>
-        </article>
+      <article class="entry">
+        <div class="entry-head">
+          <h3>MSc in Computer Science<span class="org">, University of Copenhagen</span></h3>
+          <p class="dates">2020 – 2022</p>
+        </div>
+        <p class="note">Focus on data-driven financial models, data science, NLP and algorithms.</p>
+      </article>
 
-        <article class="entry">
-          <header class="entry-head">
-            <h3>BSc in Computer Science</h3>
-            <p class="org">University of Copenhagen</p>
-            <p class="dates">2017 – 2020</p>
-          </header>
-          <p class="note">Included an exchange semester at the Hong Kong University of Science and Technology (HKUST).</p>
-        </article>
+      <article class="entry">
+        <div class="entry-head">
+          <h3>BSc in Computer Science<span class="org">, University of Copenhagen</span></h3>
+          <p class="dates">2017 – 2020</p>
+        </div>
+        <p class="note">Exchange semester at the Hong Kong University of Science and Technology (HKUST).</p>
+      </article>
 
-        <article class="entry">
-          <header class="entry-head">
-            <h3>Certifications</h3>
-            <p class="org">Databricks Academy</p>
-          </header>
-          <ul>
-            <li>Databricks Fundamentals</li>
-            <li>Generative AI Fundamentals</li>
-          </ul>
-        </article>
-
-      </div>
+      <article class="entry">
+        <div class="entry-head">
+          <h3>Certifications<span class="org">, Databricks Academy</span></h3>
+        </div>
+        <p class="note">Databricks Fundamentals and Generative AI Fundamentals.</p>
+      </article>
     </section>
 
     <!-- ===== Skills ===== -->
@@ -137,7 +153,10 @@
         <dd>Python, SQL, C#, Angular, HTML</dd>
 
         <dt>Data</dt>
-        <dd>Analysis, data engineering and pipelines, statistics, financial modelling, machine learning, NLP, reporting and dashboards</dd>
+        <dd>Analysis, data engineering and pipelines, statistics, financial modelling, machine learning, NLP, dashboards</dd>
+
+        <dt>AI</dt>
+        <dd>Claude (daily use), LLMs and generative AI</dd>
 
         <dt>Tools</dt>
         <dd>Azure DevOps, Git, Visual Studio, Google Cloud Platform, Google Data Studio, Excel (incl. macros)</dd>
@@ -146,29 +165,11 @@
         <dd>Team lead, agile sprint planning, project management, budgets and invoicing, mentoring, performance reviews, stakeholder management</dd>
 
         <dt>Languages</dt>
-        <dd>Danish (native), English (professional level), Chinese (HSK 3)</dd>
+        <dd>Danish (native), English (professional), Chinese (HSK 3)</dd>
 
-        <dt>Outside work</dt>
+        <dt>Interests</dt>
         <dd>Investing, financial markets, fitness, football and travel</dd>
       </dl>
-    </section>
-
-    <!-- ===== Contact ===== -->
-    <section id="contact" class="contact">
-      <h2>Contact</h2>
-      <div>
-        <p>Email is the easiest way to reach me.</p>
-        <dl>
-          <dt>Email</dt>
-          <dd><a href="mailto:Jimmie-Jin@outlook.com">Jimmie-Jin@outlook.com</a></dd>
-
-          <dt>Phone</dt>
-          <dd><a href="tel:+4527892665">+45 27 89 26 65</a></dd>
-
-          <dt>LinkedIn</dt>
-          <dd><a href="https://www.linkedin.com/in/YOUR-PROFILE">linkedin.com/in/YOUR-PROFILE</a> <mark class="todo">TODO: put in your real LinkedIn link (it’s in two places on this line)</mark></dd>
-        </dl>
-      </div>
     </section>
 
   </main>

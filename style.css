@@ -3,7 +3,7 @@
    Shared stylesheet for index.html (English) and da.html (Danish).
 
    Most changes only need the variables in :root below:
-   colours (light and dark), fonts and the column width.
+   colours (light and dark), fonts and the page width.
    The fonts are loaded from Google Fonts in the <head> of each HTML file.
    ========================================================== */
 
@@ -12,17 +12,17 @@
 
 :root {
   /* Light mode */
-  --bg: #fcfcfa;
-  --text: #1d211f;
-  --muted: #5b625e;      /* dates, labels, secondary text */
-  --line: #dde2de;       /* thin line above the footer */
-  --accent: #2d6a58;     /* the one accent colour, a copper-roof green.
-                            Used for section titles and links. */
+  --bg: #ffffff;
+  --text: #1b1e1c;
+  --muted: #5d6560;      /* dates, labels, company names */
+  --line: #e1e5e2;       /* thin lines */
+  --accent: #2d6a58;     /* the one accent colour, a copper-roof green:
+                            section titles and links */
 
-  --serif: "Literata", Georgia, "Times New Roman", serif;
-  --sans: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --serif: "Literata", Georgia, serif;                               /* your name */
+  --sans: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;  /* everything else */
 
-  --measure: 45rem;      /* max text width, about 720px */
+  --measure: 45rem;      /* max page width, about 720px */
   --gutter: 1.25rem;     /* space at the screen edges on phones */
 
   color-scheme: light dark;
@@ -31,10 +31,10 @@
 /* Dark mode follows the visitor's system setting */
 @media screen and (prefers-color-scheme: dark) {
   :root {
-    --bg: #161d1a;
-    --text: #e3e8e4;
-    --muted: #9aa69f;
-    --line: #2a3430;
+    --bg: #141917;
+    --text: #e4e9e5;
+    --muted: #9ba59f;
+    --line: #2a322e;
     --accent: #8fc4ae;
   }
 }
@@ -57,14 +57,13 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: var(--serif);
-  font-size: 1.0625rem;
-  line-height: 1.65;
-  font-optical-sizing: auto;
+  font-family: var(--sans);
+  font-size: 0.9375rem;
+  line-height: 1.55;
   overflow-wrap: break-word;
 }
 
-/* Long Danish words get hyphenated on phones (turned off on bigger screens) */
+/* Long Danish words get hyphenated on phones */
 body:lang(da) {
   -webkit-hyphens: auto;
   hyphens: auto;
@@ -73,10 +72,6 @@ body:lang(da) {
 
 h1, h2, h3, p, ul, dl, dd {
   margin: 0;
-}
-
-h1, h2, h3 {
-  text-wrap: balance;
 }
 
 p, li, dd {
@@ -95,7 +90,7 @@ a:hover {
 
 a:focus-visible {
   outline: 2px solid var(--accent);
-  outline-offset: 3px;
+  outline-offset: 2px;
   border-radius: 2px;
 }
 
@@ -104,142 +99,148 @@ a:focus-visible {
   color: var(--bg);
 }
 
-/* The centred column. Never wider than --measure. */
 .page {
   width: min(100% - 2 * var(--gutter), var(--measure));
   margin-inline: auto;
+  padding-block: 1.75rem 2rem;
+}
+
+/* "Skip to content" link, only visible when you tab to it */
+.skip-link {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 1;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  background: var(--text);
+  color: var(--bg);
+  transform: translateY(-150%);
+}
+
+.skip-link:focus {
+  transform: none;
 }
 
 
-/* ---------- Top: name and intro ---------- */
+/* ---------- Header: name, contact, summary ---------- */
 
-.top {
-  padding-top: 1.25rem;
-}
-
-.lang {
+.top-row {
   display: flex;
-  justify-content: flex-end;
-  margin-bottom: 3.5rem;
-  font-family: var(--sans);
-  font-size: 0.9375rem;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
 }
 
 h1 {
-  font-family: var(--sans);
-  font-size: clamp(2.5rem, 1.6rem + 4.5vw, 4.25rem);
-  font-weight: 700;
-  line-height: 1.02;
-  letter-spacing: -0.03em;
+  font-family: var(--serif);
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.lang {
+  font-size: 0.875rem;
 }
 
 .role {
-  margin-top: 0.75rem;
-  font-family: var(--sans);
+  margin-top: 0.25rem;
   font-size: 1rem;
-  line-height: 1.5;
   color: var(--muted);
 }
 
-.lead {
-  margin-top: 2rem;
-  font-size: 1.25rem;
-  line-height: 1.55;
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  margin-top: 0.625rem;
+  padding: 0;
+  list-style: none;
+}
+
+.summary {
+  max-width: 40rem;
+  margin-top: 1.25rem;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 
 /* ---------- Sections ---------- */
 
 section {
-  margin-top: 4.5rem;
+  margin-top: 2.25rem;
 }
 
+/* Section title with a thin line running to the right */
 h2 {
-  margin-bottom: 1.5rem;
-  font-family: var(--sans);
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 1.4;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.875rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.3;
   color: var(--accent);
+}
+
+h2::after {
+  content: "";
+  flex: 1;
+  border-top: 1px solid var(--line);
 }
 
 /* One job, degree or set of certificates */
 .entry + .entry {
-  margin-top: 2.5rem;
+  margin-top: 1.25rem;
 }
 
 h3 {
-  font-family: var(--sans);
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 600;
-  line-height: 1.35;
+  line-height: 1.4;
 }
 
 .org {
-  font-style: italic;
+  font-weight: 400;
   color: var(--muted);
 }
 
 .dates {
-  margin-top: 0.125rem;
-  font-family: var(--sans);
   font-size: 0.875rem;
   color: var(--muted);
 }
 
-.entry ul,
-.entry .note {
-  margin-top: 0.875rem;
-}
-
 .entry ul {
-  padding-left: 1.25rem;
+  margin-top: 0.375rem;
+  padding-left: 1rem;
   list-style: "– " outside;
 }
 
 .entry li + li {
-  margin-top: 0.5rem;
+  margin-top: 0.125rem;
 }
 
 .entry li::marker {
   color: var(--muted);
 }
 
+.note {
+  margin-top: 0.25rem;
+}
+
 
 /* ---------- Skills ---------- */
 
-.skills dt {
-  font-family: var(--sans);
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--muted);
-}
-
-.skills dd {
-  margin-top: 0.125rem;
-}
-
-.skills dd + dt {
-  margin-top: 1.25rem;
-}
-
-
-/* ---------- Contact ---------- */
-
-.contact p {
-  margin-bottom: 1.5rem;
-}
-
-.contact dl {
+.skills {
   display: grid;
-  grid-template-columns: 5rem 1fr;
-  gap: 0.5rem 1rem;
-  align-items: baseline;
+  grid-template-columns: max-content 1fr;
+  gap: 0.375rem 1.25rem;
 }
 
-.contact dt {
-  font-family: var(--sans);
-  font-size: 0.875rem;
+.skills dt {
+  font-weight: 500;
   color: var(--muted);
 }
 
@@ -247,11 +248,10 @@ h3 {
 /* ---------- Footer ---------- */
 
 .bottom {
-  margin-top: 5rem;
-  padding-block: 1.5rem 3rem;
+  margin-top: 2.5rem;
+  padding-top: 0.875rem;
   border-top: 1px solid var(--line);
-  font-family: var(--sans);
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   color: var(--muted);
 }
 
@@ -265,9 +265,7 @@ h3 {
   border-radius: 3px;
   background: #ffe066;
   color: #2b2400;
-  font-family: var(--sans);
   font-size: 0.8125rem;
-  font-style: normal;
   font-weight: 500;
   line-height: 1.6;
   -webkit-hyphens: manual;
@@ -284,74 +282,33 @@ h3 {
     --gutter: 2rem;
   }
 
-  body {
-    font-size: 1.125rem;
-  }
-
   body:lang(da) {
     -webkit-hyphens: manual;
     hyphens: manual;
   }
 
-  .top {
-    padding-top: 2rem;
+  .page {
+    padding-block: 3.5rem 3rem;
   }
 
-  .lang {
-    margin-bottom: 6rem;
+  h1 {
+    font-size: 2.5rem;
   }
 
-  .lead {
-    font-size: 1.4375rem;
-  }
-
-  /* Section title in a narrow left column, content on the right */
   section {
-    display: grid;
-    grid-template-columns: 8.5rem 1fr;
-    column-gap: 2rem;
-    margin-top: 6.5rem;
+    margin-top: 2.5rem;
   }
 
-  h2 {
-    position: sticky;
-    top: 2rem;
-    align-self: start;
-    margin-bottom: 0;
-  }
-
-  .entry + .entry {
-    margin-top: 3rem;
-  }
-
-  /* Title and place on the left, dates on the right */
+  /* Title on the left, dates on the right */
   .entry-head {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    grid-template-areas:
-      "title dates"
-      "org   .";
-    column-gap: 1.5rem;
+    display: flex;
+    justify-content: space-between;
     align-items: baseline;
+    gap: 1rem;
   }
 
-  .entry-head h3 {
-    grid-area: title;
-  }
-
-  .entry-head .org {
-    grid-area: org;
-  }
-
-  .entry-head .dates {
-    grid-area: dates;
-    margin-top: 0;
-    text-align: right;
-  }
-
-  /* Dashes hang in the margin, so the text lines up with the title */
-  .entry ul {
-    padding-left: 0;
+  .dates {
+    flex-shrink: 0;
   }
 }
 
@@ -359,76 +316,71 @@ h3 {
 /* ---------- Print / save as PDF ---------- */
 
 @page {
-  margin: 16mm 18mm;
+  margin: 12mm 14mm;
 }
 
+/* Fits on one A4 page */
 @media print {
   :root {
     --bg: #fff;
     --text: #000;
-    --muted: #444;
-    --line: #ccc;
-    --accent: #000;
+    --muted: #4a4a4a;
+    --line: #c8c8c8;
+    --accent: #1f4d40;
   }
 
   html {
-    font-size: 11px;
+    font-size: 13px;
   }
 
   body {
-    line-height: 1.5;
+    line-height: 1.45;
+  }
+
+  .skip-link,
+  .lang,
+  .bottom {
+    display: none;
   }
 
   .page {
     width: auto;
+    padding: 0;
   }
 
-  .lang {
-    display: none;
-  }
-
-  .lead {
-    margin-top: 1.25rem;
+  .summary {
+    max-width: none;
+    margin-top: 0.875rem;
   }
 
   section {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
   }
 
   h2 {
-    position: static;
+    margin-bottom: 0.625rem;
     break-after: avoid;
   }
 
   .entry + .entry {
-    margin-top: 1.5rem;
+    margin-top: 0.875rem;
   }
 
-  .entry ul,
-  .entry .note {
-    margin-top: 0.5rem;
-  }
-
-  .entry li + li {
-    margin-top: 0.25rem;
-  }
-
-  .skills dd + dt {
-    margin-top: 0.75rem;
-  }
-
-  .entry,
-  .contact {
+  .skills {
     break-inside: avoid;
-  }
-
-  .bottom {
-    margin-top: 2rem;
-    padding-block: 0.75rem 0;
   }
 
   a {
     color: inherit;
     text-decoration: none;
+  }
+
+  /* Show the LinkedIn address on paper */
+  .contact a[data-print]::after {
+    content: ": " attr(data-print);
+  }
+
+  .entry {
+    break-inside: avoid;
   }
 }

@@ -256,25 +256,6 @@ h3 {
 }
 
 
-/* ---------- TODO notes ---------- */
-/* Yellow notes for things you still need to fill in.
-   Delete each <mark class="todo">...</mark> once it's done. */
-
-.todo {
-  padding: 0.1em 0.4em;
-  border-radius: 3px;
-  background: #ffe066;
-  color: #2b2400;
-  font-size: 0.8125rem;
-  font-weight: 500;
-  line-height: 1.6;
-  -webkit-hyphens: manual;
-  hyphens: manual;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
-}
-
-
 /* ---------- Bigger screens ---------- */
 
 @media (min-width: 40rem) {

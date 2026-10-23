@@ -1,0 +1,434 @@
+/* ==========================================================
+   Jimmie Jin, CV
+   Shared stylesheet for index.html (English) and da.html (Danish).
+
+   Most changes only need the variables in :root below:
+   colours (light and dark), fonts and the column width.
+   The fonts are loaded from Google Fonts in the <head> of each HTML file.
+   ========================================================== */
+
+
+/* ---------- Colours, fonts, sizes ---------- */
+
+:root {
+  /* Light mode */
+  --bg: #fcfcfa;
+  --text: #1d211f;
+  --muted: #5b625e;      /* dates, labels, secondary text */
+  --line: #dde2de;       /* thin line above the footer */
+  --accent: #2d6a58;     /* the one accent colour, a copper-roof green.
+                            Used for section titles and links. */
+
+  --serif: "Literata", Georgia, "Times New Roman", serif;
+  --sans: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+
+  --measure: 45rem;      /* max text width, about 720px */
+  --gutter: 1.25rem;     /* space at the screen edges on phones */
+
+  color-scheme: light dark;
+}
+
+/* Dark mode follows the visitor's system setting */
+@media screen and (prefers-color-scheme: dark) {
+  :root {
+    --bg: #161d1a;
+    --text: #e3e8e4;
+    --muted: #9aa69f;
+    --line: #2a3430;
+    --accent: #8fc4ae;
+  }
+}
+
+
+/* ---------- Base ---------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--serif);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  font-optical-sizing: auto;
+  overflow-wrap: break-word;
+}
+
+/* Long Danish words get hyphenated on phones (turned off on bigger screens) */
+body:lang(da) {
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  hyphenate-limit-chars: 8 4 4;
+}
+
+h1, h2, h3, p, ul, dl, dd {
+  margin: 0;
+}
+
+h1, h2, h3 {
+  text-wrap: balance;
+}
+
+p, li, dd {
+  text-wrap: pretty;
+}
+
+a {
+  color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+/* The centred column. Never wider than --measure. */
+.page {
+  width: min(100% - 2 * var(--gutter), var(--measure));
+  margin-inline: auto;
+}
+
+
+/* ---------- Top: name and intro ---------- */
+
+.top {
+  padding-top: 1.25rem;
+}
+
+.lang {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 3.5rem;
+  font-family: var(--sans);
+  font-size: 0.9375rem;
+}
+
+h1 {
+  font-family: var(--sans);
+  font-size: clamp(2.5rem, 1.6rem + 4.5vw, 4.25rem);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+
+.role {
+  margin-top: 0.75rem;
+  font-family: var(--sans);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.lead {
+  margin-top: 2rem;
+  font-size: 1.25rem;
+  line-height: 1.55;
+}
+
+
+/* ---------- Sections ---------- */
+
+section {
+  margin-top: 4.5rem;
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--accent);
+}
+
+/* One job, degree or set of certificates */
+.entry + .entry {
+  margin-top: 2.5rem;
+}
+
+h3 {
+  font-family: var(--sans);
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.org {
+  font-style: italic;
+  color: var(--muted);
+}
+
+.dates {
+  margin-top: 0.125rem;
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.entry ul,
+.entry .note {
+  margin-top: 0.875rem;
+}
+
+.entry ul {
+  padding-left: 1.25rem;
+  list-style: "– " outside;
+}
+
+.entry li + li {
+  margin-top: 0.5rem;
+}
+
+.entry li::marker {
+  color: var(--muted);
+}
+
+
+/* ---------- Skills ---------- */
+
+.skills dt {
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.skills dd {
+  margin-top: 0.125rem;
+}
+
+.skills dd + dt {
+  margin-top: 1.25rem;
+}
+
+
+/* ---------- Contact ---------- */
+
+.contact p {
+  margin-bottom: 1.5rem;
+}
+
+.contact dl {
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  gap: 0.5rem 1rem;
+  align-items: baseline;
+}
+
+.contact dt {
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+
+/* ---------- Footer ---------- */
+
+.bottom {
+  margin-top: 5rem;
+  padding-block: 1.5rem 3rem;
+  border-top: 1px solid var(--line);
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+
+/* ---------- TODO notes ---------- */
+/* Yellow notes for things you still need to fill in.
+   Delete each <mark class="todo">...</mark> once it's done. */
+
+.todo {
+  padding: 0.1em 0.4em;
+  border-radius: 3px;
+  background: #ffe066;
+  color: #2b2400;
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.6;
+  -webkit-hyphens: manual;
+  hyphens: manual;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+
+/* ---------- Bigger screens ---------- */
+
+@media (min-width: 40rem) {
+  :root {
+    --gutter: 2rem;
+  }
+
+  body {
+    font-size: 1.125rem;
+  }
+
+  body:lang(da) {
+    -webkit-hyphens: manual;
+    hyphens: manual;
+  }
+
+  .top {
+    padding-top: 2rem;
+  }
+
+  .lang {
+    margin-bottom: 6rem;
+  }
+
+  .lead {
+    font-size: 1.4375rem;
+  }
+
+  /* Section title in a narrow left column, content on the right */
+  section {
+    display: grid;
+    grid-template-columns: 8.5rem 1fr;
+    column-gap: 2rem;
+    margin-top: 6.5rem;
+  }
+
+  h2 {
+    position: sticky;
+    top: 2rem;
+    align-self: start;
+    margin-bottom: 0;
+  }
+
+  .entry + .entry {
+    margin-top: 3rem;
+  }
+
+  /* Title and place on the left, dates on the right */
+  .entry-head {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "title dates"
+      "org   .";
+    column-gap: 1.5rem;
+    align-items: baseline;
+  }
+
+  .entry-head h3 {
+    grid-area: title;
+  }
+
+  .entry-head .org {
+    grid-area: org;
+  }
+
+  .entry-head .dates {
+    grid-area: dates;
+    margin-top: 0;
+    text-align: right;
+  }
+
+  /* Dashes hang in the margin, so the text lines up with the title */
+  .entry ul {
+    padding-left: 0;
+  }
+}
+
+
+/* ---------- Print / save as PDF ---------- */
+
+@page {
+  margin: 16mm 18mm;
+}
+
+@media print {
+  :root {
+    --bg: #fff;
+    --text: #000;
+    --muted: #444;
+    --line: #ccc;
+    --accent: #000;
+  }
+
+  html {
+    font-size: 11px;
+  }
+
+  body {
+    line-height: 1.5;
+  }
+
+  .page {
+    width: auto;
+  }
+
+  .lang {
+    display: none;
+  }
+
+  .lead {
+    margin-top: 1.25rem;
+  }
+
+  section {
+    margin-top: 2rem;
+  }
+
+  h2 {
+    position: static;
+    break-after: avoid;
+  }
+
+  .entry + .entry {
+    margin-top: 1.5rem;
+  }
+
+  .entry ul,
+  .entry .note {
+    margin-top: 0.5rem;
+  }
+
+  .entry li + li {
+    margin-top: 0.25rem;
+  }
+
+  .skills dd + dt {
+    margin-top: 0.75rem;
+  }
+
+  .entry,
+  .contact {
+    break-inside: avoid;
+  }
+
+  .bottom {
+    margin-top: 2rem;
+    padding-block: 0.75rem 0;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
